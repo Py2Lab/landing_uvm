@@ -1,0 +1,554 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_footer-modern
+include ../components/_ui-thumbnail
+include ../components/_ui-box-icon
+include ../components/_ui-box-services
+include ../components/_ui-quote
+include ../components/_ui-box-team
+include ../components/_ui-posts
+include ../components/_ui-counters
+include ../components/_ui-product
+include ../components/_ui-progress-bar-linear
+include ../components/_ui-thumbnail
+
+block variables
+  - var activeCategory = 'home'
+  - var pageName = 'Home'
+ 
+
+block page
+  // Page Header
+  header.section.page-header#home(data-type='anchor')
+    // RD Navbar
+    .rd-navbar-wrap
+      nav.rd-navbar.rd-navbar-modern(
+      data-layout=                'rd-navbar-fixed'
+      data-sm-layout=             'rd-navbar-fixed'
+      data-md-layout=             'rd-navbar-fixed'
+      data-md-device-layout=      'rd-navbar-fixed'
+      data-lg-layout=             'rd-navbar-fixed'
+      data-lg-device-layout=      'rd-navbar-fixed'
+      data-xl-layout=             'rd-navbar-static'
+      data-xl-device-layout=      'rd-navbar-static'
+      data-xxl-layout=            'rd-navbar-static'
+      data-xxl-device-layout=     'rd-navbar-static'
+      data-lg-stick-up-offset=    '150px'
+      data-xl-stick-up-offset=    '150px'
+      data-xxl-stick-up-offset=   '250px'
+      data-lg-stick-up=           'true'
+      data-xl-stick-up=           'true'
+      data-xxl-stick-up=          'true')
+        .rd-navbar-inner-outer: .rd-navbar-inner
+          // RD Navbar Panel
+          .rd-navbar-panel
+            // RD Navbar Toggle
+            button.rd-navbar-toggle(data-rd-navbar-toggle='.rd-navbar-nav-wrap'): span
+            // RD Navbar Brand
+            .rd-navbar-brand: a.brand(href='index.html'): +png(logo.default, 'brand-logo-dark')
+
+          .rd-navbar-right.rd-navbar-nav-wrap
+            .rd-navbar-aside
+              ul.rd-navbar-contacts-2
+                li: .unit.unit-spacing-xs
+                  .unit-left: span.icon.mdi.mdi-phone
+                  .unit-body: a.phone(href='tel:#') +1 718-999-3939
+                li: .unit.unit-spacing-xs
+                  .unit-left: span.icon.mdi.mdi-map-marker
+                  .unit-body: a.address(href='#') 514 S. Magnolia St. Orlando, FL 32806
+
+              ul.list-share-2
+                li: a.icon.mdi.mdi-facebook(href='#')
+                li: a.icon.mdi.mdi-twitter(href='#')
+                li: a.icon.mdi.mdi-instagram(href='#')
+                li: a.icon.mdi.mdi-google-plus(href='#')
+
+            .rd-navbar-main
+              include ../includes/_navigation
+
+          .rd-navbar-project-hamburger.rd-navbar-project-hamburger-open.rd-navbar-fixed-element-1( data-multitoggle='.rd-navbar-inner', data-multitoggle-blur='.rd-navbar-wrap', data-multitoggle-isolate )
+            .project-hamburger
+              - for (var i = 0; i < 3 ; i++)
+                span.project-hamburger-arrow
+
+          .rd-navbar-project
+            .rd-navbar-project-header
+              h5.rd-navbar-project-title Latest Projects
+              .rd-navbar-project-hamburger.rd-navbar-project-hamburger-close( data-multitoggle='.rd-navbar-inner', data-multitoggle-blur='.rd-navbar-wrap', data-multitoggle-isolate )
+                .project-close
+                  span
+                  span
+
+            .rd-navbar-project-content.rd-navbar-content: div: .row.gutters-20(data-lightgallery='group')
+              .col-6
+                +thumbnail-creative({
+                  nameImg: 'aside',
+                  numberImg: '1',
+                  sizeImg: '195x164'
+                })
+              .col-6
+                +thumbnail-creative({
+                  nameImg: 'aside',
+                  numberImg: '2',
+                  sizeImg: '195x164'
+                })
+              .col-6
+                +thumbnail-creative({
+                  nameImg: 'aside',
+                  numberImg: '3',
+                  sizeImg: '195x164'
+                })
+              .col-6
+                +thumbnail-creative({
+                  nameImg: 'aside',
+                  numberImg: '4',
+                  sizeImg: '195x164'
+                })
+              .col-6
+                +thumbnail-creative({
+                  nameImg: 'aside',
+                  numberImg: '5',
+                  sizeImg: '195x164'
+                })
+              .col-6
+                +thumbnail-creative({
+                  nameImg: 'aside',
+                  numberImg: '6',
+                  sizeImg: '195x164'
+                })
+    
+
+  // Swiper
+  section.section.swiper-container.swiper-slider.swiper-slider-2.swiper-slider-3(data-loop='true' data-autoplay='5000' data-simulate-touch="false" data-slide-effect='fade')
+    .swiper-wrapper.text-sm-left
+      .swiper-slide.context-dark.bg-dark-overlay(data-slide-bg='images/slide-1-1920x753.jpg')
+        .swiper-slide-caption.section-md: .container: .row: .col-sm-9.col-md-8.col-lg-7.col-xl-6.offset-lg-1.offset-xxl-0
+          h3.oh.swiper-title: span.d-inline-block(data-caption-animate='slideInUp' data-caption-delay='0') #1 Digital  #[br] Marketing Agency
+          p.big.swiper-text(data-caption-animate='fadeInLeft' data-caption-delay='300') Digimint Agency provides efficient digital marketing services for your business.
+          a.button.button-lg.button-primary-gradient.button-shadow-2(href='#' data-caption-animate='fadeInUp' data-caption-delay='300') View our services
+
+      .swiper-slide.context-dark.bg-dark-overlay(data-slide-bg='images/slide-2-1920x753.jpg')
+        .swiper-slide-caption.section-md: .container: .row: .col-sm-8.col-lg-6.offset-lg-1.offset-xxl-0
+          h3.oh.swiper-title: span.d-inline-block(data-caption-animate='slideInDown' data-caption-delay='0') Reliable team of experts
+          p.big.swiper-text(data-caption-animate='fadeInRight' data-caption-delay='300') We are a qualified team of marketing and SEO professionals working for you.
+          .button-wrap.oh: a.button.button-lg.button-primary-gradient.button-shadow-2(href='#' data-caption-animate='slideInUp' data-caption-delay='0') View our services
+
+      .swiper-slide.context-dark.bg-dark-overlay(data-slide-bg='images/slide-3-1920x753.jpg')
+        .swiper-slide-caption.section-md: .container: .row: .col-sm-8.col-lg-6.offset-lg-1.offset-xxl-0
+          h3.oh.swiper-title: span.d-inline-block(data-caption-animate='slideInLeft' data-caption-delay='100') Quality digital solutions
+          p.big.swiper-text(data-caption-animate='fadeInUp' data-caption-delay='0') We aim to provide top-notch digital promotion services worldwide.
+          .button-wrap.oh: a.button.button-lg.button-primary-gradient.button-shadow-2(href='#' data-caption-animate='slideInLeft' data-caption-delay='100') View our services
+
+    // Swiper Pagination
+    .swiper-pagination(data-bullet-custom='true')
+
+    // Swiper Navigation
+    .swiper-button-prev
+      .preview: .preview__img
+      .swiper-button-arrow
+    .swiper-button-next
+      .swiper-button-arrow
+      .preview: .preview__img
+  ='\n'
+
+  // Section Services
+  section.section.section-sm.bg-default
+    .container
+      .owl-carousel.owl-style-11.dots-style-2(data-items='1', data-sm-items='2', data-lg-items='3', data-xl-items='4', data-margin='30', data-dots='true', data-mouse-drag='false')
+        +box-icon-megan({
+          icon: 'linearicons-finger-tap',
+          title: 'Pay Per Click',
+          text: 'Our PPC solutions can help you get your brand in front of the right customer.'
+        }).wow.fadeInUp
+        +box-icon-megan({
+          icon: 'linearicons-graph',
+          title: 'Content Marketing',
+          text: 'With this service, you can easily deliver content relevant to your customers.'
+        }).wow.fadeInUp(data-wow-delay='.05s')
+        +box-icon-megan({
+          icon: 'linearicons-chart-growth',
+          title: 'SEO Services',
+          text: 'Our SEO services are designed to increase visibility in search results.'
+        }).wow.fadeInUp(data-wow-delay='.1s')
+        +box-icon-megan({
+          icon: 'linearicons-paper-plane',
+          title: 'Email Marketing',
+          text: 'Digimint can also develop an efficient email marketing campaign for your company.\n'
+        }).wow.fadeInUp(data-wow-delay='.15s')
+  ='\n'
+
+  // Section CTA
+  +parallax({
+    img: 'bg-cta-2',
+    innerClass: 'section-xl context-dark text-md-left bg-dark-overlay'
+  })
+    .container: .row.justify-content-end: .col-sm-8.col-md-7.col-lg-5
+      .cta-modern
+        h4.cta-modern-title.wow.fadeInRight Our Mission is to Make the Business Life of Our Clients Better!
+        p.cta-modern-text.cta-modern-text-2.oh-desktop(data-wow-delay='.1s')
+          span.cta-modern-decor.wow.slideInLeft
+          span.d-inline-block.wow.slideInDown Ben Smith, Founder
+        a.button.button-lg.button-primary-gradient.wow.fadeInUp(href='#' data-wow-delay='.2s') read more
+  ='\n'
+
+  section.section.section-xl.bg-default.text-left#about-us(data-type='anchor')
+    .container
+      .row.row-30.align-items-lg-end
+        .col-lg-6
+          h3 A few words about our agency
+          .block-sm.block-sm-left
+            p We're an international marketing agency that integrates complex technologies and innovations into our working process and translates them into visibility-raising strategies and frameworks. Our roster of clients is global – from Silicon Valley to Switzerland and New York to the Netherlands.
+            p Our range of solutions varies from SEO & SMM services to online marketing and branding. Whatever you require, we will deliver the best results for you and attract potential clients to your company, its products, and services.
+        .col-lg-6
+          +progress-bar-linear({
+            mod: 'progress-gradient',
+            title: "online marketing",
+            valueTo: "59"
+          })
+          +progress-bar-linear({
+            mod: 'progress-gradient',
+            title: "SEO",
+            valueTo: "78"
+          })
+          +progress-bar-linear({
+            mod:'progress-gradient',
+            title: "Branding",
+            valueTo: "69"
+          })
+
+  // Our History
+  section.section.section-lg.bg-gray-100.text-left.section-relative.section-bg-creative
+    .container
+      .row.row-60.justify-content-center.justify-content-xxl-between
+        .col-lg-6.col-xxl-5.position-static
+          h3.oh-desktop: span.d-inline-block.wow.slideInUp Our history
+          #tabs-5.tabs-custom
+            .tab-content.tab-content-1
+              #tabs-5-1.tab-pane.fade
+                h5.font-weight-normal.text-transform-none.text-spacing-75 Establishment of Digimint marketing agency
+                p We founded Digimint agency to help businesses reach out to their customers with both traditional marketing and innovative methods that revolutionized the industry.
+              #tabs-5-2.tab-pane.fade
+                h5.font-weight-normal.text-transform-none.text-spacing-75 Growing as a company and mastering new techniques
+                p 7 years later, we became one of the most creative marketing agencies in the US. We also began to study the niche of online marketing, which was still unoccupied.
+              #tabs-5-3.tab-pane.fade
+                h5.font-weight-normal.text-transform-none.text-spacing-75 Partnering with international marketers and promoters
+                p To give our clients more and better opportunities in the world of online marketing, we partnered with European and Asian marketers that allowed us to achieve more.
+              #tabs-5-4.tab-pane.fade.show.active
+                h5.font-weight-normal.text-transform-none.text-spacing-75.wow.fadeInRight Introducing new services and customer-tailored solutions
+                p.wow.fadeInRight(data-wow-delay='.1s') Marketing techniques develop and so do we. During recent years, we introduced new services such as SMM, video marketing, context marketing, and many others.
+
+            .list-history-wrap: ul.nav.list-history
+              li.list-history-item(role='presentation'): a(href='#tabs-5-1' data-toggle='tab')
+                .list-history-circle
+                | 1980
+              li.list-history-item(role='presentation'): a(href='#tabs-5-2' data-toggle='tab')
+                .list-history-circle
+                | 1995
+              li.list-history-item(role='presentation'): a(href='#tabs-5-3' data-toggle='tab')
+                .list-history-circle
+                | 2006
+              li.list-history-item(role='presentation'): a.active(href='#tabs-5-4' data-toggle='tab')
+                .list-history-circle
+                | 2019
+        .col-md-9.col-lg-6.position-static.index-1
+          .bg-image-right-1.bg-image-right-lg.gradient-overlay.bg-dark-overlay
+            +jpg('about-1-1110x710')
+            .link-play-modern
+              a.icon.mdi.mdi-play(data-lightgallery='item', href='https://www.youtube.com/watch?v=1UWpbtUupQQ')
+              .link-play-modern-title How we
+                span Work
+              .link-play-modern-decor
+  ='\n'
+
+  // What We Offer
+  section.section.section-xl.bg-default
+    .container
+      h3.wow.fadeInLeft What People Say
+    .container.container-style-1: .owl-carousel.owl-style-12(data-items='1', data-sm-items='2', data-lg-items='3', data-margin='30', data-xl-margin='45', data-autoplay='true', data-nav='true', data-center='true', data-smart-speed='400')
+      +quote-tara({
+        text: 'Your agency has been a great help to my marketing efforts for the past several years. You did an excellent job redesigning my brand.',
+        img: 'user-6-115x115',
+        author: 'Bill Johnson',
+        status: 'Client'
+      })
+      +quote-tara({
+        text: 'I would just like to thank you for your effective online marketing services, for your friendly and professional support and answers to my questions!',
+        img: 'user-7-115x115',
+        author: 'Sam Fitzgerald',
+        status: 'Client'
+      })
+      +quote-tara({
+        text: 'Thank you for the SEO services you delivered. You helped my website attract new partners and promote my own services to new customers.',
+        img: 'user-8-115x115',
+        author: 'Stephanie Williams',
+        status: 'Client'
+      })
+      +quote-tara({
+        text: 'Your agency has been a great help to my marketing efforts for the past several years. You did an excellent job redesigning my brand.',
+        img: 'user-6-115x115',
+        author: 'Jane Johnson',
+        status: 'Client'
+      })
+      +quote-tara({
+        text: 'I would just like to thank you for your effective online marketing services, for your friendly and professional support and answers to my questions!',
+        img: 'user-7-115x115',
+        author: 'Sam Fitzgerald',
+        status: 'Client'
+      })
+      +quote-tara({
+        text: 'Thank you for the SEO services you delivered. You helped my website attract new partners and promote my own services to new customers.',
+        img: 'user-8-115x115',
+        author: 'Stephanie Williams',
+        status: 'Client'
+      })
+      
+  ='\n'
+
+  // Section CTA
+  +parallax({
+    img: 'bg-cta-3',
+    innerClass: 'section-xxl context-dark text-md-left bg-dark-overlay'
+  })
+    .container: .row.justify-content-end: .col-sm-9.col-md-7.col-lg-5
+      .cta-modern
+        h3.cta-modern-title.cta-modern-title-2.oh-desktop: span.d-inline-block.wow.fadeInLeft Professional Online Marketing Services
+        p.cta-modern-text.cta-modern-text-2.oh-desktop(data-wow-delay='.1s')
+          span.cta-modern-decor.wow.slideInLeft
+          span.d-inline-block.wow.slideInUp Providing top-notch solutions for you
+        a.button.button-lg.button-primary-gradient.wow.fadeInRight(href='#' data-wow-delay='.2s') Contact us
+  ='\n'
+
+  // Tell
+  section.section.section-sm.section-first.bg-default#team(data-type='anchor')
+    .container
+      h3.oh-desktop: span.d-inline-block.wow.slideInUp Tell our team About Your Project
+      .owl-carousel(data-items='1', data-sm-items='2', data-md-items='3', data-lg-items='4', data-margin='30', data-dots='true', data-mouse-drag='false')
+        +team-abby({
+          img: 'team-1-270x270',
+          name: 'Samanta Lopez',
+          status: 'Operations Manager'
+        }).wow.slideInDown
+        +team-abby({
+          img: 'team-2-270x270',
+          name: 'Jane McMillan',
+          status: 'Analytics Director'
+        }).wow.slideInUp
+        +team-abby({
+          img: 'team-3-270x270',
+          name: 'Stuart Williams',
+          status: 'Account Director'
+        }).wow.slideInDown
+        +team-abby({
+          img: 'team-4-270x270',
+          name: 'Sam Peterson',
+          status: 'Director of Client Strategy'
+        }).wow.slideInUp
+
+      form.rd-form.rd-mailform.form-style-1(data-form-output='form-output-global', data-form-type='contact', method='post', action='bat/rd-mailform.php')
+        .row.row-20.gutters-20
+          .col-md-6.col-lg-4.oh-desktop: .form-wrap.wow.slideInDown
+            input.form-input(id='contact-your-name-6' type='text' name='name' data-constraints='@Required')
+            label.form-label(for='contact-your-name-6') Your Name*
+          .col-md-6.col-lg-4.oh-desktop: .form-wrap.wow.slideInUp
+            input.form-input(id='contact-email-6' type='email' name='email' data-constraints='@Email @Required')
+            label.form-label(for='contact-email-6') Your E-mail*
+          .col-lg-4.oh-desktop: .form-wrap.wow.slideInDown
+            //Select 2
+            select.form-input(name='service'  data-placeholder='Select a Service' data-constraints="@Required" )
+              option( label='placeholder' )
+              option(value="Online Marketing") Online Marketing
+              option(value="Content Marketing") Content Marketing
+              option(value="SEO") SEO
+          .col-12: .form-wrap.wow.fadeIn
+            label.form-label(for='contact-message-6') Message
+            textarea.form-input.textarea-lg(id='contact-message-6' name='message' data-constraints='@Required')
+        .group-custom-1.group-middle.oh-desktop
+          button.button.button-lg.button-primary-gradient.wow.fadeInRight(type='submit') Send message
+          +quote-classic({
+            mod: 'quote-classic-3',
+            text: 'Feel free to describe your future project in details.'
+          }).wow.slideInDown
+  ='\n'
+
+
+  section.section.section-sm.section-last.bg-default#portfolio(data-type='anchor')
+    .container-fluid.container-inset-0.isotope-wrap
+      h3.wow.fadeInRight Our portfolio
+      .row.row-10.gutters-10.row-lg.isotope(data-isotope-layout='masonry', data-isotope-group='gallery', data-column-class='.col-1', data-lightgallery='group')
+        .col-1.isotope-item.isotope-sizer
+        .col-sm-4.col-xl-2.isotope-item.oh-desktop
+          +thumbnail-mary({
+            mod: 'thumbnail-mary-2',
+            nameImg: 'project',
+            numberImg: '7',
+            sizeImg: '335x585',
+            nameImgOriginal: 'project-4',
+            title: 'Smith & Johnson LTD.',
+            location: 'Online Marketing'
+          }).wow.slideInLeft
+        .col-sm-8.col-xl-4.isotope-item.oh-desktop
+          +thumbnail-mary({
+            mod: 'thumbnail-mary-big',
+            nameImg: 'project',
+            numberImg: '8',
+            sizeImg: '615x587',
+            title: 'Architex',
+            location: 'Mobile & App Marketing'
+          }).wow.slideInRight
+        .col-sm-4.col-xl-2.isotope-item.oh-desktop
+          +thumbnail-mary({
+            mod: 'thumbnail-mary-2',
+            nameImg: 'project',
+            numberImg: '9',
+            sizeImg: '311x289',
+            title: 'iStep LTD',
+            location: 'SEO & SMM'
+          }).wow.slideInDown
+        .col-sm-8.col-xl-4.isotope-item.oh-desktop
+          +thumbnail-mary({
+            nameImg: 'project',
+            numberImg: '10',
+            sizeImg: '631x289',
+            title: 'Smartdrive',
+            location: 'Context advertising'
+          }).wow.slideInUp
+        .col-sm-4.col-xl-2.isotope-item.oh-desktop
+          +thumbnail-mary({
+            mod: 'thumbnail-mary-2',
+            nameImg: 'project',
+            numberImg: '11',
+            sizeImg: '311x289',
+            title: 'Select Co.',
+            location: 'Content Marketing'
+          }).wow.slideInUp
+        .col-sm-4.col-xl-2.isotope-item.oh-desktop
+          +thumbnail-mary({
+            mod: 'thumbnail-mary-2',
+            nameImg: 'project',
+            numberImg: '12',
+            sizeImg: '311x289',
+            title: 'Quad Biz',
+            location: 'email marketing'
+          }).wow.slideInRight
+        .col-sm-4.col-xl-2.isotope-item.oh-desktop
+          +thumbnail-mary({
+            mod: 'thumbnail-mary-2',
+            nameImg: 'project',
+            numberImg: '13',
+            sizeImg: '311x289',
+            nameImgOriginal: 'project-1',
+            title: '3k Style',
+            location: 'Branding'
+          }).wow.slideInLeft
+  ='\n'
+
+  // Latest News
+  section.section.section-lg.bg-gray-100#news(data-type='anchor')
+    .container
+      h3.oh-desktop: span.d-inline-block.wow.slideInDown Latest News
+      .owl-carousel.owl-style-13(data-items='1', data-md-items='2', data-margin='30', data-autoplay='true',  data-nav='true', data-dots='true')
+        +post-creative({
+          img: 'post-1-440x229',
+          title: 'How to Get More Customers on the Internet: 3 Easy Steps',
+          time: { datetime: '2019-09-09', dateText: 'September 9, 2019' },
+          comments: '3 Comments'
+        })
+        +post-creative({
+          img: 'post-2-440x229',
+          title: 'Learning to Reach New Audiences Using Social Media Marketing Tools',
+          time: {datetime: '2019-10-29', dateText: 'October 29, 2019'},
+          comments: '6 Comments'
+        })
+        +post-creative({
+          img: 'post-1-440x229',
+          title: 'How to Get More Customers on the Internet: 3 Easy Steps',
+          time: {datetime: '2019-09-09', dateText: 'September 9, 2019'},
+          comments: '3 Comments'
+        })
+        +post-creative({
+          img: 'post-2-440x229',
+          title: 'Learning to Reach New Audiences Using Social Media Marketing Tools',
+          time: {datetime: '2019-10-29', dateText: 'October 29, 2019'},
+          comments: '6 Comments'
+        })
+  ='\n'
+
+  
+  section.section-inset-9.context-dark.bg-gradient-1
+    .container: .row.row-30.justify-content-center.justify-content-xl-between.align-items-lg-end
+      .col-sm-6.col-md-3
+        +counter-classic({
+          number: '640',
+          title: 'annual clients'
+        })
+      .col-sm-6.col-md-3
+        +counter-classic({
+          number: '15',
+          title: 'awards won'
+        })
+      .col-sm-6.col-md-3
+        +counter-classic({
+          number: '24',
+          title: 'team members'
+        })
+      .col-sm-6.col-md-3
+        +counter-classic({
+          number: '150',
+          title: 'new projects'
+        })
+
+  // Clients Jean
+  section.section.section-sm.section-inset-3.bg-gray-100.text-center
+    .container
+      .owl-carousel.owl-style-9(data-items='1', data-sm-items='2', data-md-items='3', data-lg-items='4', data-xl-items='5', data-margin='30', data-dots='true', data-mouse-drag='false')
+        a.clients-jean(href='#'): +png('clients-18-200x90')
+        a.clients-jean(href='#'): +png('clients-6-200x90')
+        a.clients-jean(href='#'): +png('clients-2-200x90')
+        a.clients-jean(href='#'): +png('clients-3-200x90')
+        a.clients-jean(href='#'): +png('clients-4-200x90')
+
+  section.section.section-lg.text-left.section-relative#contact-us(data-type='anchor')
+    .container
+      .row.row-60.justify-content-center.justify-content-xxl-between
+        .col-md-9.col-lg-6.position-static.index-1
+          .bg-image-left-1.bg-image-left-lg.bg-dark-overlay
+            +jpg('about-1-1110x710')
+        .col-lg-6.col-xxl-5.position-static
+          h3.oh-desktop: span.d-inline-block.wow.slideInUp Get in Touch
+          form.rd-form.rd-mailform(data-form-output='form-output-global', data-form-type='contact', method='post', action='bat/rd-mailform.php')
+            .row.row-20.gutters-20
+              .col-md-12.oh-desktop: .form-wrap.wow.slideInDown
+                input.form-input(id='contact-your-name-1' type='text' name='name' data-constraints='@Required')
+                label.form-label(for='contact-your-name-1') Your Name*
+              .col-md-12.oh-desktop: .form-wrap.wow.slideInUp
+                input.form-input(id='contact-email-1' type='email' name='email' data-constraints='@Email @Required')
+                label.form-label(for='contact-email-1') Your E-mail*
+              .col-md-12.oh-desktop: .form-wrap.wow.slideInDown
+                //Select 2
+                select.form-input(name='service'  data-placeholder='Select a Service' data-constraints="@Required" )
+                  option( label='placeholder' )
+                  option(value="Online Marketing") Online Marketing
+                  option(value="Content Marketing") Content Marketing
+                  option(value="SEO") SEO
+              .col-12: .form-wrap.wow.fadeIn
+                label.form-label(for='contact-message-1') Message
+                textarea.form-input.textarea-lg(id='contact-message-1' name='message' data-constraints='@Required')
+            .group-custom-1.group-middle.oh-desktop
+              button.button.button-primary-gradient.wow.fadeInRight(type='submit') Send message
+
+  // Page Footer
+  +footer-modern({
+    mod: 'footer-modern-2',
+    logo: logo.inverse,
+    name: logo.name,
+    textForm: 'Sign up today for the latest news and tips',
+    list: [
+      { text: 'Facebook Ads' },
+      { text: 'PPC Services' },
+      { text: 'Email Marketing' },
+      { text: 'SEO Services' },
+      { text: 'Lead Generation' },
+      { text: 'Marketing Strategy' }
+    ]
+  })
